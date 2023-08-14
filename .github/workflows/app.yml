@@ -7,6 +7,6 @@ jobs:
     steps:
       - run: pwd
       - run: ls
-      - run: pm2 delete python-flask
+      - run: pm2 delete flask
       - run: pm2 start "PORT=2029 python3 app.py" --name flask
       - uses: actions/checkout@v3
