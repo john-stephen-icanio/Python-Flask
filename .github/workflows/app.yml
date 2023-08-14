@@ -1,0 +1,12 @@
+name: Python-Flask demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+      - run: pwd
+      - run: ls
+      - run: pm2 delete python-flask
+      - run: pm2 start "PORT=2029 python3 app.py" --name flask
+      - uses: actions/checkout@v3
