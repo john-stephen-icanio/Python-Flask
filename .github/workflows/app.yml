@@ -2,14 +2,12 @@ name: Python-Flask demo
 on: [push]
 jobs:
   Generate-Zap-report:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - run: pwd
       - run: ls
-      - name: Checkout my repo
-        uses: actions/checkout@v3
-      - run: pwd
-      - run: ls
+      - run: pm2 delete  python-flask
+      - run: pm2 start "PORT=2020 python3 app.py" --name python-flask
       - name: Checkout zap repo
         uses: zaproxy/action-full-scan@v0.6.0
         with:
