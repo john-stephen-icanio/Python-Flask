@@ -11,4 +11,5 @@ jobs:
       - run: ls
       - run: pip install flask
       - run: curl ipconfig.io
+      - run: python3 --version
       - run: python3 app.py
