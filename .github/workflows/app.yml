@@ -10,4 +10,5 @@ jobs:
       - run: pwd
       - run: ls
       - run: pip install flask
+      - run: curl ipconfig.io
       - run: python3 app.py
