@@ -1,15 +1,27 @@
 name: Python-Flask demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Generate-Zap-report:
     runs-on: ubuntu-latest
     steps:
       - run: pwd
       - run: ls
+      - name: Checkout my repo
       - uses: actions/checkout@v3
       - run: pwd
       - run: ls
-      - run: pip install flask
-      - run: curl ipconfig.io
-      - run: python3 --version
-      - run: python3 app.py
+      - name: Checkout zap repo
+        uses: zaproxy/action-full-scan@v0.6.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: 'john-zap-stephen'
+          target: 'http://localhost:2020/'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
+
+
+      
+#      - run: pip install flask
+#      - run: curl ipconfig.io
+#      - run: python3 --version
+#      - run: python3 app.py
