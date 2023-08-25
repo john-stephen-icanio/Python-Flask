@@ -1,0 +1,22 @@
+pipeline {
+        agent any
+        stages {
+                stage('Build') {
+                        steps {
+                                echo "Build the project"
+                                sh 'ls'
+                                sh 'pwd'
+                                sh 'pip install -r requirements.txt'
+                        }
+                }
+                stage('Deploy') {
+                        steps {
+                                sh 'pm2 delete flask-pipeline'
+                                sh 'PORT=7070 pm2 start "python3 app.py" --name flask-pipeline'
+                                echo "Deploy successfuly"
+                        }
+                }
+        }
+}
+
+
