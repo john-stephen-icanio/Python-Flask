@@ -11,3 +11,5 @@ jobs:
       - name: Git Pull
         run: git pull && git checkout main
 
+      - name: test variables
+        run: ls
