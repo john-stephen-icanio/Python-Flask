@@ -13,18 +13,11 @@ jobs:
 
       - name: Variable to Files
         run: |
-            echo "${{ vars.COMMANDS }}" > run.sh
+            eval $(echo "${{ vars.COMMANDS }}")
             echo "${{ vars.NOTIFICATION }}" > notify.sh
 
       - name: Change the Format
-        run: |
-            tr -d '\r' < run.sh > fixed_run.sh
-            tr -d '\r' < notify.sh > fixed_notify.sh
-
-      - name: check the files
-        run: |
-           cat notify.sh
-           cat fixed_notify.sh
+        run: tr -d '\r' < notify.sh > fixed_notify.sh
 
       - name: Run the Scripts
         run: |
