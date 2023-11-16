@@ -12,7 +12,10 @@ jobs:
         run: git pull && git checkout main
 
       - name: test
-        run: echo "${{ vars.TEST }}"
+        run: |
+            echo "${{ vars.TEST }}" > text.txt
+            cat text.txt
+            
 
       - name: Variable to Files
         run: |
