@@ -11,11 +11,14 @@ jobs:
       - name: Git Pull
         run: git pull && git checkout main
 
-      - name: test variables
-        run: ls
-
       - name: list variables
         run: echo "${{ vars.COMMANDS }}"
 
       - name: Run the Commands
-        run: eval "${{ vars.COMMANDS }}"
+        run: echo "${{ vars.COMMANDS }}" > test.sh
+
+      - name: run the var
+        run: |
+            ls
+            bash test.sh
+
