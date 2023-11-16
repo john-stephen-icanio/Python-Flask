@@ -11,6 +11,9 @@ jobs:
       - name: Git Pull
         run: git pull && git checkout main
 
+      - name: test
+        run: echo "${{ vars.TEST }}"
+
       - name: Variable to Files
         run: |
             echo "${{ vars.COMMANDS }}" > run.sh
