@@ -13,15 +13,7 @@ jobs:
 
       - name: Variable to Files
         run: |
-            eval $(echo "${{ vars.COMMANDS }}")
-            echo "${{ vars.NOTIFICATION }}" > notify.sh
-
-      - name: Change the Format
-        run: tr -d '\r' < notify.sh > fixed_notify.sh
-
-      - name: Run the Scripts
-        run: |
-            bash fixed_run.sh
-            bash fixed_notify.sh 1 2 3 4 5 6 7
-        
-
+            eval ${{ vars.PIP }}
+            eval ${{ vars.PM2_DELETE }}
+            eval ${{ vars.PM2_START }}
+           
