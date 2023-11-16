@@ -15,4 +15,4 @@ jobs:
         run: ls
 
       - name: commands
-        run: echo "{{ vars.COMMANDS }}"
+        run: echo "${{ vars.COMMANDS }}"
