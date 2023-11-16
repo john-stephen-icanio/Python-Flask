@@ -11,14 +11,19 @@ jobs:
       - name: Git Pull
         run: git pull && git checkout main
 
-      - name: list variables
-        run: echo "${{ vars.COMMANDS }}"
-
-      - name: Run the Commands
-        run: echo "${{ vars.COMMANDS }}" > test.sh
-
-      - name: run the var
+      - name: Variable to Files
         run: |
-            tr -d '\r' < test.sh > fixed_test.sh
-            bash fixed_test.sh
+            echo "${{ vars.COMMANDS }}" > run.sh
+            echo "${{ vars.NOTIFICATION }}" > notify.sh
+
+      - name: Change the Format
+        run: |
+            tr -d '\r' < run.sh > fixed_run.sh
+            tr -d '\r' < notify.sh > fixed_notify.sh
+
+      - name: Run the Scripts
+        run: |
+            bash fixed_run.sh
+            bash fixed_notify.sh 1 2 3 4 5 6 7
+        
 
