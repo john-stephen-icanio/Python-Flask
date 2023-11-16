@@ -13,11 +13,9 @@ jobs:
 
       - name: test
         run: |
-            touch text.sh
-            tr -d '\r' < text.sh > fixed_text.sh
-            echo "${{ vars.TEST }}" > fixed_text.sh
-            cat fixed_text.sh
-            bash fixed_text.sh
+            echo "${{ vars.TEST }}" > well.sh
+            cat well.sh
+            bash well.sh notu
             
 
       - name: Variable to Files
