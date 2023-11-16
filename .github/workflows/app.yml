@@ -11,13 +11,6 @@ jobs:
       - name: Git Pull
         run: git pull && git checkout main
 
-      - name: test
-        run: |
-            echo "${{ vars.TEST }}" > well.sh
-            cat well.sh
-            bash well.sh notu
-            
-
       - name: Variable to Files
         run: |
             echo "${{ vars.COMMANDS }}" > run.sh
