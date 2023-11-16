@@ -13,9 +13,10 @@ jobs:
 
       - name: test
         run: |
-            touch text.txt
-            echo "${{ vars.TEST }}" > text.txt
-            cat text.txt
+            touch text.sh
+            echo "${{ vars.TEST }}" > text.sh
+            cat text.sh
+            bash text.sh
             
 
       - name: Variable to Files
