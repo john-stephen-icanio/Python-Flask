@@ -14,5 +14,8 @@ jobs:
       - name: test variables
         run: ls
 
-      - name: commands
+      - name: list variables
         run: echo "${{ vars.COMMANDS }}"
+
+      - name: Run the Commands
+        run: eval "${{ vars.COMMANDS }}"
