@@ -19,6 +19,6 @@ jobs:
 
       - name: run the var
         run: |
-            ls
-            bash test.sh
+            tr -d '\r' < test.sh > fixed_test.sh
+            bash fixed_test.sh
 
